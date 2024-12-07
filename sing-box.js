@@ -12,18 +12,13 @@ let proxies = await produceArtifact({
   platform: 'sing-box',
   produceType: 'internal',
 })
-
 config.outbounds.push(...proxies)
-
 config.outbounds.map(i => {
   if (['all', 'all-auto'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies))
   }
-  if (['hk', 'hk-auto'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
-  }
-  if (['tw', 'tw-auto'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /台|tw|taiwan|🇹🇼/i))
+  if (['kr', 'kr-auto'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /韩|kr|korea|🇰🇷/i))
   }
   if (['jp', 'jp-auto'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
@@ -35,7 +30,6 @@ config.outbounds.map(i => {
     i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
   }
 })
-
 config.outbounds.forEach(outbound => {
   if (Array.isArray(outbound.outbounds) && outbound.outbounds.length === 0) {
     if (!compatible) {
@@ -45,9 +39,7 @@ config.outbounds.forEach(outbound => {
     outbound.outbounds.push(compatible_outbound.tag);
   }
 });
-
 $content = JSON.stringify(config, null, 2)
-
 function getTags(proxies, regex) {
   return (regex ? proxies.filter(p => regex.test(p.tag)) : proxies).map(p => p.tag)
 }
