@@ -1,7 +1,7 @@
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
   SubscriptionProvider:
-    url: "http://192.168.2.1:3001/CKg2abstVnOeRpm1aB4G/download/custom?target=ClashMeta"
+    url: ""
     type: http
     interval: 86400
     health-check:
