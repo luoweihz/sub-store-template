@@ -18,16 +18,16 @@ config.outbounds.map(i => {
     i.outbounds.push(...getTags(proxies))
   }
   if (['kr', 'kr-auto'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /韩|kr|korea|🇰🇷/i))
+    i.outbounds.push(...getTags(proxies, /🇰🇷韩国|kr|korea|🇰🇷/i))
   }
   if (['jp', 'jp-auto'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
+    i.outbounds.push(...getTags(proxies, /🇯🇵日本|jp|japan|🇯🇵/i))
   }
   if (['sg', 'sg-auto'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)/i))
+    i.outbounds.push(...getTags(proxies, /🇸🇬新加坡|sg|singapore|🇸🇬/i))
   }
   if (['us', 'us-auto'].includes(i.tag)) {
-    i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
+    i.outbounds.push(...getTags(proxies, /🇺🇲美国|us|unitedstates|united states|🇺🇸/i))
   }
 })
 config.outbounds.forEach(outbound => {
