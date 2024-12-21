@@ -116,7 +116,7 @@ proxy-groups:
 
   - name: OpenAI
     type: select
-    proxies:  [默认,韩国,日本,新加坡,美国]
+    proxies:  [默认,韩国,日本,新加坡,美国,全部节点,自动选择,直连]
 
   - name: Microsoft
     type: select
